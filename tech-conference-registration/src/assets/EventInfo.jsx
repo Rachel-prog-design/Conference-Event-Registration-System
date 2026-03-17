@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import EventInfo from "./pages/EventInfo.js";
 
 function EventInfo({ registered }) {
 
