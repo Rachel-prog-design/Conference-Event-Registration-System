@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import EventInfo from "./pages/EventInfo";
+import Register from "./pages/Register";
+import Review from "./pages/Review";
+import Confirmation from "./pages/Confirmation";
+import Submitted from "./pages/Submitted";
 
-const Navbar = () => {
+function App({ formData, setFormData }) {
   return (
-    <nav style={{ padding: "10px", background: "#eee" }}>
-      <Link to="/" style={{ marginRight: "10px" }}>Event Info</Link>
-      <Link to="/register" style={{ marginRight: "10px" }}>Register</Link>
-      <Link to="/review" style={{ marginRight: "10px" }}>Review</Link>
-      <Link to="/confirmation" style={{ marginRight: "10px" }}>Confirmation</Link>
-      <Link to="/submitted">Submitted</Link>
-    </nav>
-  );
-};
+    <BrowserRouter>
+      {/* Navbar must be here, outside Routes */}
+      <Navbar />
 
-export default Navbar;
+      <Routes>
+        <Route path="/" element={<EventInfo />} />
+        <Route path="/register" element={<Register setFormData={setFormData} />} />
+        <Route path="/review" element={<Review formData={formData} />} />
+        <Route path="/confirmation" element={<Confirmation formData={formData} />} />
+        <Route path="/submitted" element={<Submitted />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
