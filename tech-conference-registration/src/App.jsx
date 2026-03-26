@@ -11,7 +11,7 @@ function App() {
   const [formData, setFormData] = useState({});
 
   return (
-    
+    <div>
     <Routes>
       <Route path="/" element={<EventInfo />} />
       <Route path="/register" element={<Register setFormData={setFormData} />} />
@@ -19,8 +19,8 @@ function App() {
       <Route path="/confirmation" element={<Confirmation formData={formData} />} />
       <Route path="/submitted" element={<Submitted />} />
     </Routes>
-    
+    </div>
   );
-}
+};
 
 export default App;
